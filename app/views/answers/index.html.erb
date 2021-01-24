@@ -1,0 +1,27 @@
+<% if @answers.present? %>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <% @questions.each do |q| %>
+        <th><%= q %></th>
+      <% end %>
+      <th>名前</th>
+      <th>性別</th>
+      <th>年齢</th>
+      <th>職業</th>
+    </tr>
+    <% @answers.each do |answer| %>
+      <tr>
+        <td><%= answer.id %></td>
+        <% 1.upto(103) do |i| %>
+          <td><%=  answer["q#{i}"] %></td>
+        <% end %>
+        <td><%= answer.name %></td>
+        <td><%= answer.sex %></td>
+        <td><%= answer.age %></td>
+        <td><%= answer.job %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

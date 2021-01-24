@@ -1,0 +1,26 @@
+<% if flash.notice %>
+  <p class="notice"><%= flash.notice %></p>
+<% end %>
+<h1>アンケート</h1>
+<%= form_for @answer do |form| %>
+  <% @questions.each_with_index do |q, i| %>
+    <h2><%= q %></h2>
+    <% @colors.each do |key, val| %>
+      <span class="<%= key %>">
+        <%= form.label "q#{i+1}".to_sym, val %>
+        <%= form.radio_button "q#{i+1}".to_sym, key %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <h2>お名前</h2>
+  <p><%= form.text_field :name %></p>
+  <h2>性別</h2>
+  <p><%= form.radio_button :sex, 1 %><%= form.label :sex_1, "男" %></p>
+  <p><%= form.radio_button :sex, 2 %><%= form.label :sex_2, "女" %></p>
+  <h2>年齢</h2>
+  <p><%= form.number_field :age %></p>
+  <h2>ご職業</h2>
+  <p><%= form.text_field :job %></p>
+  <p><%= form.submit %></p>
+<% end %>
