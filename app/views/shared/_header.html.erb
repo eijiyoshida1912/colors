@@ -1,0 +1,8 @@
+<% if current_member %>
+  <ul>
+    <%= current_member.name + "さん" %>
+    <%= link_to "ログアウト", :session, method: :delete,
+                data: { confirm: "ログアウトしますか？" } %>
+  </ul>
+<% end %>
+
