@@ -1,0 +1,148 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue",
+  Arial,
+  "Hiragino Kaku Gothic ProN",
+  "Hiragino Sans",
+  Meiryo,
+  sans-serif;
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.questions_list {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  padding: 20px 0;
+  &__q {
+    margin-bottom: 12px;
+    text-align: center;
+  }
+}
+
+.button_list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &__button {
+    list-style: none;
+    width: 30%;
+    margin: 0 12px 12px;
+    transition: opacity .2s ease-out;
+    &:hover {
+      opacity: .7;
+    }
+    & > label {
+      border-radius: 4px;
+      padding: 8px 0;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+    }
+    & > input {
+      display: none;
+    }
+    &.black > label {
+      background-color: lighten(#444, 15%);
+      border: 1px solid #444;
+      color: #fff;
+    }
+    &.white > label {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      color: #666;
+    }
+
+    &.red > label {
+      background-color: lighten(red, 15%);
+      border: 1px solid red;
+      color: #fff;
+    }
+
+    &.orange > label {
+      background-color: lighten(orange, 15%);
+      border: 1px solid orange;
+      color: darken(orange, 30%);
+    }
+
+    &.yellow > label {
+      background-color: lighten(yellow, 15%);
+      border: 1px solid yellow;
+      color: darken(yellow, 30%);
+    }
+
+    &.green > label {
+      background-color: lighten(green, 15%);
+      border: 1px solid green;
+      color: darken(green, 30%);
+    }
+
+    &.blue > label {
+      background-color: lighten(blue, 15%);
+      border: 1px solid blue;
+      color: #fff;
+    }
+
+    &.purple > label {
+      background-color: lighten(purple, 15%);
+      border: 1px solid purple;
+      color: #fff;
+    }
+
+    &.brown > label {
+      background-color: lighten(brown, 15%);
+      border: 1px solid brown;
+      color: #fff;
+    }
+
+    &.gray > label {
+      background-color: lighten(gray, 15%);
+      border: 1px solid gray;
+      color: #fff;
+    }
+
+    &.pink > label {
+      background-color: lighten(pink, 10%);
+      border: 1px solid pink;
+      color: darken(pink, 30%);
+    }
+  }
+}
+
+
+@media screen and (min-width:768px) {
+  .button_list {
+    &__button {
+      width: 10%;
+    }
+  }
+}

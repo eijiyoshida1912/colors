@@ -2,10 +2,23 @@
   <p class="notice"><%= flash.notice %></p>
 <% end %>
 <div id="questions">
+  {{ message }}
+
   <h1>アンケート</h1>
   <%= form_for @answer do |form| %>
     <% @questions.each_with_index do |q, i| %>
-      <question question="<%= q %>" number="<%= i %>"></question>
+      <div class="questions_list">
+        <h2 class="questions_list__q"><%= q %></h2>  {{ radio_value<%= i+1 %> }}
+
+        <ul class="button_list">
+          <% @colors.each do |key, val| %>
+            <li class="button_list__button <%= key %>">
+              <%= form.label "q#{i+1}_#{key}".to_sym, val %>
+              <%= form.radio_button "q#{i+1}".to_sym, key, "v-model" => "radio_value#{i+1}" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
 
     <h2>お名前</h2>
