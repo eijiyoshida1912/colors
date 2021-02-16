@@ -21,11 +21,6 @@ Vue.filter('buttonName', (value) => {
   return "answer[q" + value + "]";
 })
 
-Vue.filter('buttonId', (value, color) => {
-  value = parseInt(value) + 1;
-  return "answer_q" + value + "_" + color;
-})
-
 Vue.component('question', {
   template: `
       <div class="questions_list" :class="radio_value">
