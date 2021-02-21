@@ -1,23 +1,45 @@
 <% if flash.notice %>
   <p class="notice"><%= flash.notice %></p>
 <% end %>
-<div id="questions">
-  <h1>アンケート</h1>
-  <%= form_for @answer do |form| %>
-    <% @questions.each_with_index do |q, i| %>
-      <question question="<%= q %>" number="<%= i %>"></question>
-    <% end %>
+<div id="questions" class="questions">
+  <h1 class="questions__title">色彩学アンケート</h1>
+  <p class="questions__desc">選択済みのカードをクリックすると、選んだ色を変更できます。</p>
 
-    <h2>お名前</h2>
-    <p><%= form.text_field :name %></p>
-    <h2>性別</h2>
-    <p><%= form.radio_button :sex, 1 %><%= form.label :sex_1, "男" %></p>
-    <p><%= form.radio_button :sex, 2 %><%= form.label :sex_2, "女" %></p>
-    <h2>年齢</h2>
-    <p><%= form.number_field :age %></p>
-    <h2>ご職業</h2>
-    <p><%= form.text_field :job %></p>
-    <p><%= form.submit %></p>
+  <% if @answer.errors.present? %>
+    <div id="errors">
+      <h3>エラーがあります</h3>
+      <ul>
+        <% @answer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for @answer do |form| %>
+    <div class="questions_list__wrap">
+      <% @questions.each_with_index do |q, i| %>
+        <question question="<%= q %>" number="<%= i %>" answer="<%= @answer["q#{i+1}"] %>"></question>
+      <% end %>
+    </div>
+
+    <div class="text_form">
+      <h2 class="text_form__title">差し支えなければ、最後にあなたのプロフィールを教えてください。</h2>
+      <div class="text_form__inner">
+        <h3 class="text_form__head">お名前<span class="text_form__nickname">(ニックネームでも可)</span></h3>
+        <p><%= form.text_field :name, class: "text_form__name", value: @answer.name %></p>
+        <h3 class="text_form__head">性別</h3>
+        <div class="text_form__sex">
+          <p class="buttons"><%= form.radio_button :sex, 1, value: @answer.sex %><%= form.label :sex_1, "男" %></p>
+          <p class="buttons"><%= form.radio_button :sex, 2, value: @answer.sex %><%= form.label :sex_2, "女" %></p>
+        </div>
+        <h3 class="text_form__head">年齢</h3>
+        <p><%= form.number_field :age, class: "text_form__age", value: @answer.age %></p>
+        <h3 class="text_form__head">ご職業</h3>
+        <p><%= form.text_field :job, class: "text_form__job", value: @answer.job %></p>
+      </div>
+    </div>
+    <p><%= form.submit "この内容で送信する", class: "text_form__submit" %></p>
   <% end %>
 </div>
 

@@ -1,19 +1,15 @@
-<h1>色彩学のアンケートです。</h1>
-<p>以下のリンクからアンケートがスタートします。</p>
-<p><%= link_to "スタート", :new_answer %></p>
-
-<h2>管理者ログイン</h2>
-<% if flash.alert %><p class="alert"><%= flash.alert %></p><% end %>
-<%= form_tag :session, id: "login_form" do %>
-  <div>
-    <label>名前:</label>
-    <input type="text" name="name">
-  </div>
-  <div>
-    <label>パスワード:</label>
-    <input type="password" name="password">
-  </div>
-  <div>
-    <input type="submit" value="ログイン">
-  </div>
-<% end %>
+<div class="top">
+  <h1 class="top__title">
+    <span class="top__pop">
+      <span class="red">シ</span>
+      <span class="blue">キ</span>
+      <span class="red">サ</span>
+      <span class="blue">イ</span>
+      <span class="red">ガ</span>
+      <span class="blue">ク</span>
+    </span>
+    <span class="top__anketo">アンケート</span>
+  </h1>
+  <p>以下のリンクからアンケートがスタートします。</p>
+  <p><%= link_to "スタート", :new_answer %></p>
+</div>

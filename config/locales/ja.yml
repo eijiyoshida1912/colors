@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      answer:
+        name: お名前
+        sex: 性別
+        age: 年齢
+        job: 職業

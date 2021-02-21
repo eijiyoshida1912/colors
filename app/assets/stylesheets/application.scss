@@ -22,11 +22,13 @@
 
 body {
   font-family: "Helvetica Neue",
-  Arial,
-  "Hiragino Kaku Gothic ProN",
-  "Hiragino Sans",
-  Meiryo,
-  sans-serif;
+               Arial,
+               "Hiragino Kaku Gothic ProN",
+               "Hiragino Sans",
+               Meiryo,
+               sans-serif;
+  background-image: image-url('background.gif');
+  background-size: 200px auto;
   background-color: #f0f0f0;
 }
 
@@ -37,158 +39,352 @@ body {
   padding: 20px;
 }
 
-.questions_list {
-  border: 1px solid #ddd;
-  background-color: #fff;
-  border-radius: 4px;
-  margin-bottom: 12px;
-  padding: 20px 0;
-  &__q {
-    margin-bottom: 12px;
+/* -------- トップページ ------------ */
+.top {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__title {
+    font-family: "Nikukyu";
+    font-weight: normal;
     text-align: center;
   }
-  &.black {
-    background-color: lighten(#444, 30%);
-    border: 1px solid #444;
-    color: #fff;
+  &__pop {
+    font-size: 36px;
+    margin-bottom: 16px;
+    display: block;
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
   }
-  &.white {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    color: #666;
-  }
-  &.red {
-    background-color: lighten(red, 30%);
-    border: 1px solid red;
-    color: #fff;
-  }
-  &.orange {
-    background-color: lighten(orange, 30%);
-    border: 1px solid orange;
-    color: darken(orange, 30%);
-  }
-  &.yellow {
-    background-color: lighten(yellow, 30%);
-    border: 1px solid yellow;
-    color: darken(yellow, 30%);
-  }
-  &.green {
-    background-color: lighten(green, 30%);
-    border: 1px solid green;
-    color: darken(green, 30%);
-  }
-  &.blue {
-    background-color: lighten(blue, 30%);
-    border: 1px solid blue;
-    color: #fff;
-  }
-  &.purple {
-    background-color: lighten(purple, 30%);
-    border: 1px solid purple;
-    color: #fff;
-  }
-  &.brown {
-    background-color: lighten(brown, 30%);
-    border: 1px solid brown;
-    color: #fff;
-  }
-  &.gray {
-    background-color: lighten(gray, 30%);
-    border: 1px solid gray;
-    color: #fff;
-  }
-  &.pink {
-    background-color: lighten(pink, 20%);
-    border: 1px solid pink;
-    color: darken(pink, 30%);
+  &__anketo {
+    color: #333;
+    letter-spacing: 2px;
   }
 }
 
-.button_list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  &__button {
-    list-style: none;
-    width: 30%;
-    margin: 0 12px 12px;
-    transition: opacity .2s ease-out;
-    &:hover {
-      opacity: .7;
+/* --------- アンケートページ ----------- */
+.questions {
+  &__title {
+    margin-bottom: 12px;
+  }
+  &__desc {
+    margin-bottom: 12px;
+  }
+  .questions_list {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding: 20px 0;
+    width: 100%;
+    &__wrap {
+      display: flex;
+      flex-wrap: wrap;
     }
-    & > label {
-      border-radius: 4px;
-      padding: 8px 0;
-      cursor: pointer;
-      display: block;
+    &__q {
       text-align: center;
     }
-    & > input {
-      display: none;
+    &.black,
+    &.white,
+    &.red,
+    &.orange,
+    &.yellow,
+    &.green,
+    &.blue,
+    &.purple,
+    &.brown,
+    &.gray,
+    &.pink {
+      width: 20%;
+      margin: 0 0.25% 0.5%;
     }
-    &.black > label {
-      background-color: lighten(#444, 15%);
+    &.black {
+      background-color: #444;
       border: 1px solid #444;
       color: #fff;
     }
-    &.white > label {
+    &.white {
       background-color: #fff;
       border: 1px solid #ccc;
       color: #666;
     }
-    &.red > label {
+    &.red {
       background-color: lighten(red, 15%);
       border: 1px solid red;
       color: #fff;
     }
-    &.orange > label {
+    &.orange {
       background-color: lighten(orange, 15%);
       border: 1px solid orange;
       color: darken(orange, 30%);
     }
-    &.yellow > label {
+    &.yellow {
       background-color: lighten(yellow, 15%);
       border: 1px solid yellow;
       color: darken(yellow, 30%);
     }
-    &.green > label {
+    &.green {
       background-color: lighten(green, 15%);
       border: 1px solid green;
       color: darken(green, 30%);
     }
-    &.blue > label {
+    &.blue {
       background-color: lighten(blue, 15%);
       border: 1px solid blue;
       color: #fff;
     }
-    &.purple > label {
+    &.purple {
       background-color: lighten(purple, 15%);
       border: 1px solid purple;
       color: #fff;
     }
-    &.brown > label {
+    &.brown {
       background-color: lighten(brown, 15%);
       border: 1px solid brown;
       color: #fff;
     }
-    &.gray > label {
+    &.gray {
       background-color: lighten(gray, 15%);
       border: 1px solid gray;
       color: #fff;
     }
-    &.pink > label {
+    &.pink {
       background-color: lighten(pink, 10%);
       border: 1px solid pink;
       color: darken(pink, 30%);
     }
   }
+
+  .button_list {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: opacity .2s ease-out;
+    &__button {
+      list-style: none;
+      width: 30%;
+      margin: 0 12px 12px;
+      transition: opacity .2s ease-out;
+      &:hover {
+        opacity: .7;
+      }
+      & > label {
+        border-radius: 4px;
+        padding: 8px 0;
+        cursor: pointer;
+        display: block;
+        text-align: center;
+      }
+      & > input {
+        display: none;
+      }
+      &.black > label {
+        background-color: #444;
+        border: 1px solid #444;
+        color: #fff;
+      }
+      &.white > label {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: #666;
+      }
+      &.red > label {
+        background-color: lighten(red, 15%);
+        border: 1px solid red;
+        color: #fff;
+      }
+      &.orange > label {
+        background-color: lighten(orange, 15%);
+        border: 1px solid orange;
+        color: darken(orange, 30%);
+      }
+      &.yellow > label {
+        background-color: lighten(yellow, 15%);
+        border: 1px solid yellow;
+        color: darken(yellow, 30%);
+      }
+      &.green > label {
+        background-color: lighten(green, 15%);
+        border: 1px solid green;
+        color: darken(green, 30%);
+      }
+      &.blue > label {
+        background-color: lighten(blue, 15%);
+        border: 1px solid blue;
+        color: #fff;
+      }
+      &.purple > label {
+        background-color: lighten(purple, 15%);
+        border: 1px solid purple;
+        color: #fff;
+      }
+      &.brown > label {
+        background-color: lighten(brown, 15%);
+        border: 1px solid brown;
+        color: #fff;
+      }
+      &.gray > label {
+        background-color: lighten(gray, 15%);
+        border: 1px solid gray;
+        color: #fff;
+      }
+      &.pink > label {
+        background-color: lighten(pink, 10%);
+        border: 1px solid pink;
+        color: darken(pink, 30%);
+      }
+    }
+  }
+
+  .text_form {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 48px 0 12px;
+    padding: 20px;
+    &__title {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    &__head {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    &__nickname {
+      font-size: 16px;
+      font-weight: normal;
+      margin-left: 16px;
+    }
+    &__name,
+    &__age,
+    &__job {
+      border: 1px solid #ddd;
+      background-color: #fff;
+      border-radius: 4px;
+      font-size: 16px;
+      height: 50px;
+      width: 100%;
+      padding: 0 16px;
+      margin-bottom: 24px;
+    }
+    &__sex {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      .buttons {
+        width: 30%;
+        margin: 0 12px;
+        transition: opacity .2s ease-out;
+        &:hover {
+          opacity: .7;
+        }
+        & > label {
+          border-radius: 4px;
+          padding: 8px 0;
+          cursor: pointer;
+          display: block;
+          text-align: center;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          color: #666;
+        }
+        & > input {
+          display: none;
+          &:checked + label {
+            background-color: lighten(blue, 15%);
+            border: 1px solid blue;
+            color: #fff;
+          }
+        }
+      }
+    }
+    &__submit {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0 auto;
+      border-radius: 4px;
+      padding: 20px;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+      background-color: lighten(blue, 15%);
+      border: 1px solid blue;
+      color: #fff;
+      transition: opacity .2s ease-out;
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
 }
 
+#errors {
+  background-color: floralwhite;
+  color: red;
+  padding: 20px 40px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
 
 @media screen and (min-width:768px) {
-  .button_list {
-    &__button {
-      width: 10%;
+  body {
+    background-size: 400px auto;
+  }
+
+  .top {
+    &__pop {
+      font-size: 60px;
+    }
+  }
+
+  .questions {
+    .questions_list {
+      display: flex;
+      align-items: center;
+      &__q {
+        width: 25%;
+      }
+      &.black,
+      &.white,
+      &.red,
+      &.orange,
+      &.yellow,
+      &.green,
+      &.blue,
+      &.purple,
+      &.brown,
+      &.gray,
+      &.pink {
+        width: 9.5%;
+        cursor: pointer;
+        .questions_list__q {
+          width: 100%;
+        }
+      }
+      .button_list {
+        justify-content: left;
+        align-items: center;
+        width: 75%;
+        &__button {
+          width: 10%;
+          margin: 8px;
+        }
+      }
+    }
+    .text_form {
+      &__inner {
+        width: 40%;
+        margin: 0 auto;
+      }
     }
   }
 }

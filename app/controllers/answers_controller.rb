@@ -13,11 +13,6 @@ class AnswersController < ApplicationController
     @questions = QUESTIONS
     @colors = COLORS
     @answer = Answer.new
-
-    # ダミーデータ
-    1.upto(103) do |i|
-      @answer.send("q#{i}=", @colors.to_a.shuffle[0][0])
-    end
   end
 
   def edit
@@ -28,7 +23,7 @@ class AnswersController < ApplicationController
     @colors = COLORS
     @answer = Answer.new(params[:answer])
     if @answer.save
-      redirect_to action: :index, notice: "登録しました"
+      redirect_to action: :index
     else
       render "new"
     end
