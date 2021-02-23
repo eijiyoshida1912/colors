@@ -1,69 +1,41 @@
-<% if @answers.present? %>
-  <table>
-    <h1 style="font-size: 12px;"><%= @answerblack %></h1>
-    <h1 style="font-size: 12px;"><%= @answerwhite %></h1>
-    <h1 style="font-size: 12px;"><%= @answerred %></h1>
-    <h1 style="font-size: 12px;"><%= @answerorange %></h1>
-    <h1 style="font-size: 12px;"><%= @answeryellow %></h1>
-    <h1 style="font-size: 12px;"><%= @answergreen %></h1>
-    <h1 style="font-size: 12px;"><%= @answerblue %></h1>
-    <h1 style="font-size: 12px;"><%= @answerpurple %></h1>
-    <h1 style="font-size: 12px;"><%= @answerbrown %></h1>
-    <h1 style="font-size: 12px;"><%= @answergray %></h1>
-    <h1 style="font-size: 12px;"><%= @answerpink %></h1>
-    
-    
-
-
-
-
-
-    
-    <tr>
-      <% @colors.each do |key, value| %>
-        <th><%= value %></th>
-      <% end %>
-    </tr>
-    <% @questions.each_with_index do |q, i| %>
+<div class="results">
+  <% if @answers.present? %>
+    <table class="results_table">
       <tr>
-        <td><%= q %>: <%= @answerblack[i] %></td>
-        <td><%= q %>: <%= @answerwhite[i] %></td>
-        <td><%= q %>: <%= @answerred[i] %></td>
-        <td><%= q %>: <%= @answerorange[i] %></td>
-        <td><%= q %>: <%= @answeryellow[i] %></td>
-        <td><%= q %>: <%= @answergreen[i] %></td>
-        <td><%= q %>: <%= @answerblue[i] %></td>
-        <td><%= q %>: <%= @answerpurple[i] %></td>
-        <td><%= q %>: <%= @answerbrown[i] %></td>
-        <td><%= q %>: <%= @answergray[i] %></td>
-        <td><%= q %>: <%= @answerpink[i] %></td>
-      </tr>
-    <% end %>
-
-  </table>
-
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>名前</th>
-      <th>性別</th>
-      <th>年齢</th>
-      <th>職業</th>
-      <% @questions.each do |q| %>
-        <th><%= q %></th>
-      <% end %>
-    </tr>
-    <% @answers.each do |answer| %>
-      <tr>
-        <td><%= answer.id %></td>
-        <td><%= answer.name %></td>
-        <td><%= answer.sex %></td>
-        <td><%= answer.age %></td>
-        <td><%= answer.job %></td>
-        <% 1.upto(103) do |i| %>
-          <td><%=  answer["q#{i}"] %></td>
+        <% @colors.each do |key, value| %>
+          <th class="<%= key %>"><%= value %></th>
         <% end %>
       </tr>
-    <% end %>
-  </table>
-<% end %>
+      <tr>
+        <% @colors.each do |color_k, color_v| %>
+          <td><ul><% instance_variable_get("@answer#{color_k}").each do |k, v| %><li class="results_list"><span class="results_list__key"><%= k %></span><span class="results_list__value"><%= v %></span></li><% end %></ul></td>
+        <% end %>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>性別</th>
+        <th>年齢</th>
+        <th>職業</th>
+        <% @questions.each do |q| %>
+          <th><%= q %></th>
+        <% end %>
+      </tr>
+      <% @answers.each do |answer| %>
+        <tr>
+          <td><%= answer.id %></td>
+          <td><%= answer.name %></td>
+          <td><%= answer.sex %></td>
+          <td><%= answer.age %></td>
+          <td><%= answer.job %></td>
+          <% 1.upto(103) do |i| %>
+            <td style="background-color:<%= answer["q#{i}"] %>;"><%=  answer["q#{i}"] %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

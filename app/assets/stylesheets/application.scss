@@ -335,6 +335,82 @@ body {
   border-radius: 4px;
 }
 
+.results {
+  .results_table {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    border: 1px solid lightgray;
+    th, td {
+      vertical-align: top;
+      padding: 10px;
+      border: 1px solid lightgray;
+    }
+    th {
+      &.black {
+        background-color: #444;
+        border: 1px solid #444;
+        color: #fff;
+      }
+      &.white {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: #666;
+      }
+      &.red {
+        background-color: lighten(red, 15%);
+        border: 1px solid red;
+        color: #fff;
+      }
+      &.orange {
+        background-color: lighten(orange, 15%);
+        border: 1px solid orange;
+        color: darken(orange, 30%);
+      }
+      &.yellow {
+        background-color: lighten(yellow, 15%);
+        border: 1px solid yellow;
+        color: darken(yellow, 30%);
+      }
+      &.green {
+        background-color: lighten(green, 15%);
+        border: 1px solid green;
+        color: darken(green, 30%);
+      }
+      &.blue {
+        background-color: lighten(blue, 15%);
+        border: 1px solid blue;
+        color: #fff;
+      }
+      &.purple {
+        background-color: lighten(purple, 15%);
+        border: 1px solid purple;
+        color: #fff;
+      }
+      &.brown {
+        background-color: lighten(brown, 15%);
+        border: 1px solid brown;
+        color: #fff;
+      }
+      &.gray {
+        background-color: lighten(gray, 15%);
+        border: 1px solid gray;
+        color: #fff;
+      }
+      &.pink {
+        background-color: lighten(pink, 10%);
+        border: 1px solid pink;
+        color: darken(pink, 30%);
+      }
+    }
+  }
+  .results_list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+  }
+}
+
 @media screen and (min-width:768px) {
   body {
     background-size: 400px auto;
