@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :answers
   resources :members
   resource :session, only: [:create, :destroy]
-  resources :admins
+  resources :results
 end
