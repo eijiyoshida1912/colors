@@ -34,6 +34,7 @@
           <% 1.upto(103) do |i| %>
             <td style="background-color:<%= answer["q#{i}"] %>;"><%=  answer["q#{i}"] %></td>
           <% end %>
+          <td><%= link_to "削除", answer, method: :delete, data: { confirm: "本当に削除しますか？" } %> </td>
         </tr>
       <% end %>
     </table>

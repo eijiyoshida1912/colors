@@ -33,5 +33,8 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    redirect_to :results, notice: "削除しました"
   end
 end

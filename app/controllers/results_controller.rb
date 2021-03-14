@@ -16,4 +16,5 @@ class ResultsController < ApplicationController
       instance_variable_set("@answer#{color_k}", instance_variable_get("@answer#{color_k}").delete_if{|k, v| v == 0}.sort_by{|_, v| -v})
     end
   end
+
 end
