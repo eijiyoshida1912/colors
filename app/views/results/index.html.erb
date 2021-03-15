@@ -13,30 +13,57 @@
       </tr>
     </table>
 
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>名前</th>
-        <th>性別</th>
-        <th>年齢</th>
-        <th>職業</th>
-        <% @questions.each do |q| %>
-          <th><%= q %></th>
-        <% end %>
-      </tr>
-      <% @answers.each do |answer| %>
+
+    <% if flash.alert %><p class="alert"><%= flash.alert %></p><% end %>
+    <%= form_tag :session, id: "login_form" do %>
+      <h2>ログイン</h2>
+      <div>
+        <label>ユーザー名</label>
+        <input type="text" name="name">
+      </div>
+      <div>
+        <label>パスワード</label>
+        <input type="password" name="password">
+      </div>
+      <div>
+        <input type="submit" value="ログイン">
+      </div>
+    <% end %>
+
+    <% if current_member %>
+      <ul class="account-menu">
+        <%= current_member.name + "さん" %>
+        <%= link_to "ログアウト", :session,
+          method: :delete, data: { confirm: "ログアウトしますか？" }%>
+      </ul>
+    <% end %>
+
+    <% if current_member %>
+      <table>
         <tr>
-          <td><%= answer.id %></td>
-          <td><%= answer.name %></td>
-          <td><%= answer.sex %></td>
-          <td><%= answer.age %></td>
-          <td><%= answer.job %></td>
-          <% 1.upto(103) do |i| %>
-            <td style="background-color:<%= answer["q#{i}"] %>;"><%=  answer["q#{i}"] %></td>
+          <th>ID</th>
+          <th>名前</th>
+          <th>性別</th>
+          <th>年齢</th>
+          <th>職業</th>
+          <% @questions.each do |q| %>
+            <th><%= q %></th>
           <% end %>
-          <td><%= link_to "削除", answer, method: :delete, data: { confirm: "本当に削除しますか？" } %> </td>
         </tr>
-      <% end %>
-    </table>
+        <% @answers.each do |answer| %>
+          <tr>
+            <td><%= answer.id %></td>
+            <td><%= answer.name %></td>
+            <td><%= answer.sex %></td>
+            <td><%= answer.age %></td>
+            <td><%= answer.job %></td>
+            <% 1.upto(103) do |i| %>
+              <td style="background-color:<%= answer["q#{i}"] %>;"><%=  answer["q#{i}"] %></td>
+            <% end %>
+            <td><%= link_to "削除", answer, method: :delete, data: { confirm: "本当に削除しますか？" } %> </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
   <% end %>
 </div>

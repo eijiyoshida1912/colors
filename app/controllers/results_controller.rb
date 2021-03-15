@@ -1,4 +1,6 @@
 class ResultsController < ApplicationController
+#  before_action :login_required
+  
   def index
     @answers = Answer.order("id")
     @questions = QUESTIONS
