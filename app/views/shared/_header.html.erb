@@ -2,7 +2,8 @@
   <ul>
     <%= current_member.name + "さん" %>
     <%= link_to "ログアウト", :session, method: :delete,
-                data: { confirm: "ログアウトしますか？" } %>
+     data: { confirm: "ログアウトしますか？" } %>
+    <%= link_to "結果ページへ", :results %>
   </ul>
 <% end %>
 
