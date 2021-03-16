@@ -1,15 +1,11 @@
 <div class="top">
-  <h1 class="top__title">
-    <span class="top__pop">
-      <span class="red">ペペぺぺっっf</span>
-      <span class="blue">キ</span>
-      <span class="red">サ</span>
-      <span class="blue">イ</span>
-      <span class="red">ガ</span>
-      <span class="blue">ク</span>
-    </span>
-    <span class="top__anketo">アンケート</span>
-  </h1>
-  <p>以下のリンクからアンケートがスタートします。</p>
-  <p><%= link_to "スタート", :new_answer %></p>
+  <h1 class="top__title"><%= image_tag("title.svg", alt: "色彩連想アンケート") %></h1>
+  <h2>このアンケートの目的</h2>
+  <p>このアンケートは、人間の感覚や知覚、感情や思考から連想される色を、私、吉田栄治が色彩の研究に役立てるために実施します。</p>
+  <h2>このアンケートのやりかた</h2>
+  <p>表示されることばに対して、直感的に思いついた色のボタンをクリックしてください。設問は103問あります。設問の最後に、名前（ニックネーム、仮名で結構です）、性別、年齢、職業を入力してください。</p>
+  <p><strong class="danger">いただいた情報は研究のために使用されるもので、他人に公開されることはありません。</strong></p>
+  <p>研究に協力していただける方は以下のボタンをクリックしてアンケートをスタートしてください。</p>
+  
+  <p><%= link_to "アンケートをはじめる", :new_answer %></p>
 </div>

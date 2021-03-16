@@ -21,12 +21,8 @@
 }
 
 body {
-  font-family: "Helvetica Neue",
-               Arial,
-               "Hiragino Kaku Gothic ProN",
-               "Hiragino Sans",
-               Meiryo,
-               sans-serif;
+  font-family: "M PLUS 1p";
+  color: #444;
   background-image: image-url('background.gif');
   background-size: 200px auto;
   background-color: #f0f0f0;
@@ -39,32 +35,25 @@ body {
   padding: 20px;
 }
 
+footer {
+  color: #999;
+  text-align: center;
+  font-style: italic;
+  padding: 100px 0 40px;
+}
+
+.danger {
+  color: #ff4d4d;
+}
+
 /* -------- トップページ ------------ */
 .top {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   &__title {
-    font-family: "Nikukyu";
-    font-weight: normal;
     text-align: center;
-  }
-  &__pop {
-    font-size: 36px;
-    margin-bottom: 16px;
-    display: block;
-    .red {
-      color: red;
+    padding: 40px 0;
+    > img {
+      width: 80%;
     }
-    .blue {
-      color: blue;
-    }
-  }
-  &__anketo {
-    color: #333;
-    letter-spacing: 2px;
   }
 }
 
@@ -417,8 +406,10 @@ body {
   }
 
   .top {
-    &__pop {
-      font-size: 60px;
+    &__title {
+      > img {
+        width: 60%;
+      }
     }
   }
 
