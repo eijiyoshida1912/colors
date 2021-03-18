@@ -1,11 +1,33 @@
 <div class="top">
-  <h1 class="top__title"><%= image_tag("title.svg", alt: "色彩連想アンケート") %></h1>
-  <h2>このアンケートの目的</h2>
-  <p>このアンケートは、人間の感覚や知覚、感情や思考から連想される色を、私、吉田栄治が色彩の研究に役立てるために実施します。</p>
-  <h2>このアンケートのやりかた</h2>
-  <p>表示されることばに対して、直感的に思いついた色のボタンをクリックしてください。設問は103問あります。設問の最後に、名前（ニックネーム、仮名で結構です）、性別、年齢、職業を入力してください。</p>
-  <p><strong class="danger">いただいた情報は研究のために使用されるもので、他人に公開されることはありません。</strong></p>
-  <p>研究に協力していただける方は以下のボタンをクリックしてアンケートをスタートしてください。</p>
+  <h1 class="title"><%= image_tag("title.png", alt: "色彩学のための色彩連想アンケート", class: "title__image") %></h1>
+  <div class="top__desc">
+    <section>
+      <h2 class="top__subtitle">このアンケートの目的</h2>
+      <p>このアンケートは、人間の感覚や知覚、感情や思考から連想される色を、私、吉田栄治が色彩の研究に役立てるために実施します。</p>
+    </section>
+    
+    <section>
+      <h2 class="top__subtitle">アンケートのやりかた</h2>
+      <p>表示されることばに対して、直感的に思いついた色のボタンをクリックしてください。設問は103問あります。設問の最後に、名前（ニックネーム、仮名で結構です）、性別、年齢、職業を入力してください。</p>
+      <p><strong class="danger">いただいた情報は研究のために使用されるもので、他人に公開されることはありません。</strong></p>
+    </section>
+  </div>
   
-  <p><%= link_to "アンケートをはじめる", :new_answer %></p>
+  <section class="profile__wrap">
+    <h2 class="top__subtitle--profile">アンケートを実施する人</h2>
+    <div class="profile">
+      <%= image_tag("face.png", class: "profile__face") %>
+      <dl class="profile__list">
+        <dt class="profile__name">吉田栄治</dt>
+        <dd class="profile__desc">現在、武蔵野美術大学で絵画やデザインを学んでいます。</dd>
+        <dd class="profile__link"><%= link_to "ポートフォリオサイト", "https://itigo-eijiyoshida1912.ssl-lolipop.jp/", target: :_blank %></dd>
+        <dd><%= link_to "Facebook", "https://www.facebook.com/eiji.yoshida.39", target: :_blank %></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <p class="top__starttext">研究に協力していただける方は以下のボタンをクリックしてアンケートをスタートしてください。</p>
+    <p class="top__button"><%= link_to "アンケートをはじめる", :new_answer %></p>
+  </section>
 </div>

@@ -48,11 +48,79 @@ footer {
 
 /* -------- トップページ ------------ */
 .top {
-  &__title {
+  section {
+    margin-bottom: 40px;
+  }
+  .title {
     text-align: center;
-    padding: 40px 0;
-    > img {
-      width: 80%;
+    padding: 40px 0 40px;
+    border-bottom: 1px dashed #999;
+
+    &__image {
+      width: 100%;
+    }
+  }
+  &__subtitle,
+  &__subtitle--profile {
+    font-size: 24px;
+    text-align: center;
+    margin: 40px 0 16px;
+  }
+  &__subtitle--profile {
+    margin-top: 0;
+  }
+  .profile {
+    text-align: center;
+    &__wrap {
+      background-color: #F4F9ED;
+      border-radius: 8px;
+      padding: 24px 12px;
+    }
+    &__list {
+      margin-bottom: 16px;
+    }
+    &__face {
+      width: 30%;
+    }
+    &__desc {
+      margin-bottom: 16px;
+    }
+    &__name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    &__link {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__starttext {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  
+  &__button {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    border-radius: 4px;
+    padding: 20px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    background-color: lighten(blue, 15%);
+    border: 1px solid blue;
+    color: #fff;
+    transition: opacity .2s ease-out;
+    > a {
+      color: #fff;
+      text-decoration: none;
+    }
+    &:hover {
+      opacity: .7;
     }
   }
 }
@@ -406,12 +474,45 @@ footer {
   }
 
   .top {
-    &__title {
-      > img {
-        width: 60%;
+    &__wrap {
+      display: flex;
+    }
+    .title {
+      text-align: center;
+      &__image {
+      width: 60%;
       }
     }
+    &__desc {
+      display: flex;
+      justify-content: space-between;
+      > section {
+        width: 48%;
+      }
+    }
+    &__button {
+      width: 50%;
+    }
+    .profile {
+      display: flex;
+      justify-content: center;
+      text-align: left;
+      align-items: flex-start;
+      &__wrap {
+        width: 60%;
+        margin: 0 auto 60px;
+      }
+      &__face {
+        width: 120px;
+        margin-right: 20px;
+      }
+      &__list {
+        width: calc(100% - 140px);
+      }
+    }
+
   }
+
 
   .questions {
     .questions_list {
